@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" modified="2026-07-07T00:00:00.000Z" agent="OpenClaw Eve" version="24.7.17" type="device">
+  <diagram id="openclaw-wsl-discord-agentbot" name="OpenClaw WSL + Discord Agent Bot">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="WSL에 OpenClaw 설치 후 Discord 앱을 에이전트 봇으로 연결하는 흐름" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="120" y="30" width="1160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="핵심 대응: Telegram BotFather = Discord Developer Portal / Telegram Bot Token = Discord Bot Token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef2ff;strokeColor=#6366f1;fontColor=#111827;fontSize=15;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="90" width="900" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="prep" value="1. 준비물&#xa;&#xa;- Windows PC 또는 서버&#xa;- WSL2 + Ubuntu&#xa;- Node.js / npm / Git&#xa;- OpenAI API 키&#xa;- Discord 계정과 서버" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9fafb;strokeColor=#6b7280;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="190" width="210" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="wsl" value="2. WSL 환경 구성&#xa;&#xa;- wsl --install&#xa;- Ubuntu 실행&#xa;- apt update / upgrade&#xa;- node, npm, git 설치&#xa;- 작업 계정/폴더 준비" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#10b981;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="310" y="190" width="210" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="openclaw" value="3. OpenClaw 설치/초기화&#xa;&#xa;- OpenClaw 설치&#xa;- 워크스페이스 생성&#xa;- 에이전트 파일 준비&#xa;  AGENTS.md / SOUL.md&#xa;  IDENTITY.md / USER.md&#xa;- 필요한 skill/plugin 확인" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="570" y="190" width="230" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="developerPortal" value="4. Discord Developer Portal&#xa;&#xa;- Application 생성&#xa;- Bot 생성&#xa;- Bot Token 발급&#xa;- Privileged Gateway Intents 확인&#xa;- OAuth2 초대 URL 생성" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#f97316;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="850" y="190" width="230" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="invite" value="5. Discord 서버에 봇 초대&#xa;&#xa;- OAuth2 URL 열기&#xa;- 대상 서버 선택&#xa;- 권한 승인&#xa;- 수업용 채널/역할 정리&#xa;- 봇이 필요한 채널만 접근" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#ec4899;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="190" width="220" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="connect" value="6. OpenClaw에 Discord 연결&#xa;&#xa;- Discord 커넥터/플러그인 설정&#xa;- Bot Token 등록&#xa;- 서버/채널 ID 지정&#xa;- 멘션 시 응답 설정&#xa;- Gateway 이벤트 수신 확인" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef2ff;strokeColor=#6366f1;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="310" y="470" width="240" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent" value="7. 에이전트 봇 구성&#xa;&#xa;- OpenAI/Codex 모델 연결&#xa;- 말투/역할/메모리 규칙 설정&#xa;- 파일 읽기/도구 사용 권한 점검&#xa;- 그룹 채팅 응답 기준 설정&#xa;- 민감 정보 보호 규칙 확인" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdfa;strokeColor=#14b8a6;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="610" y="470" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="test" value="8. 테스트&#xa;&#xa;- Discord에서 봇 멘션&#xa;- 질문 응답 확인&#xa;- 멘션 없을 때 조용한지 확인&#xa;- 파일/메모리 저장 확인&#xa;- 재시작 후 자동 연결 확인" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fefce8;strokeColor=#eab308;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="930" y="470" width="250" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="security" value="보안 체크&#xa;&#xa;- API 키와 Bot Token은 공유 금지&#xa;- MEMORY.md / USER.md는 동료에게 그대로 복사 금지&#xa;- 채널 권한은 최소 권한 원칙&#xa;- 로그에 토큰이 남지 않는지 확인&#xa;- 공개 채널에 설정 파일 전체 붙여넣기 금지" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef2f2;strokeColor=#ef4444;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="735" width="350" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="mapping" value="Telegram ↔ Discord 개념 대응&#xa;&#xa;BotFather → Discord Developer Portal&#xa;Bot Token → Discord Bot Token&#xa;Chat/Channel → Server/Channel&#xa;/commands → Slash Commands&#xa;방에 봇 추가 → OAuth2 URL로 서버 초대&#xa;Webhook/Polling → Gateway Events" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#111827;fontSize=14;spacing=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="510" y="735" width="360" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="output" value="완성 결과&#xa;&#xa;Discord 수업 채널에서 @봇 멘션&#xa;→ OpenClaw가 메시지 수신&#xa;→ 에이전트가 도구/메모리/모델을 사용&#xa;→ Discord로 답변 반환" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfeff;strokeColor=#06b6d4;fontColor=#111827;fontSize=15;spacing=14;align=left;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="960" y="735" width="360" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="prep" target="wsl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="wsl" target="openclaw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="openclaw" target="developerPortal">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="developerPortal" target="invite">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="invite" target="connect">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="420"/>
+              <mxPoint x="430" y="420"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="connect" target="agent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="agent" target="test">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#374151;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="test" target="output">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1055" y="700"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#ef4444;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="security" target="connect">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="245" y="690"/>
+              <mxPoint x="430" y="690"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;dashed=1;endArrow=block;endFill=1;" edge="1" parent="1" source="mapping" target="developerPortal">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="700"/>
+              <mxPoint x="965" y="700"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
