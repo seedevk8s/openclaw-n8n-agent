@@ -1,0 +1,67 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="OpenClaw Agent Big Picture (Draft)" id="openclaw-bigpicture-draft-1">
+    <mxGraphModel dx="1740" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;" value="OpenClaw 기반 에이전트 환경 — 큰 그림" vertex="1">
+          <mxGeometry height="30" width="900" x="30" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="telegram" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B85450;strokeWidth=2;fontSize=15;fontStyle=1;" value="TUI(Text User Interface),&#xa;SNS(Telegram 등)" vertex="1">
+          <mxGeometry height="55" width="260" x="370" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="openclaw_boundary" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="650" width="880" x="60" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="openclaw_label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#6C8EBF;" value="OpenClaw" vertex="1">
+          <mxGeometry height="30" width="150" x="680" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e_telegram_gateway" edge="1" parent="1" source="telegram" style="endArrow=block;startArrow=block;html=1;strokeColor=#000000;strokeWidth=2;fontSize=12;fontColor=#000000;labelBackgroundColor=#FFFFFF;" target="gateway" value="WS 통신">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;strokeWidth=2;fontSize=15;fontStyle=1;" value="Gateway&#xa;토큰 기반 인증" vertex="1">
+          <mxGeometry height="80" width="300" x="350" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#999999;dashed=1;align=left;spacingLeft=6;fontSize=11;html=1;" value="&lt;b&gt;라우팅 데몬&lt;/b&gt;&lt;br&gt;여러 채널·에이전트 요청을 적절히&lt;br&gt;라우팅해주는 백그라운드 프로세스" vertex="1">
+          <mxGeometry height="60" width="200" x="660" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="on_demand_note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#999999;dashed=1;align=left;spacingLeft=6;fontSize=11;" value="각각의 에이전트는 요청시에만 실행됨" vertex="1">
+          <mxGeometry height="30" width="220" x="640" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="wsl_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;align=left;spacingLeft=8;fontSize=11;" value="현재 WSL 배포판 상태 (wsl -l -v 기준)&#xa;• openclaw01 : Running (Agent 1)&#xa;• openclaw02 : Running (Agent 2)&#xa;• Agent 3용 배포판 : 아직 미생성&#xa;(Ubuntu, Ubuntu-26.04는 별개·미사용)" vertex="1">
+          <mxGeometry height="110" width="240" x="710" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="port1" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="18801" vertex="1">
+          <mxGeometry height="50" width="100" x="320" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="port2" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="18802" vertex="1">
+          <mxGeometry height="50" width="100" x="440" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="port3" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="18803" vertex="1">
+          <mxGeometry height="50" width="100" x="560" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#76A5AF;strokeWidth=2;fontSize=13;fontStyle=1;" value="Agent 1 (Port 18801, openclaw01)&#xa;Primary: Gemini&#xa;Fallback: Ollama+Gemma&#xa;(설치 진행중 — pull 중)" vertex="1">
+          <mxGeometry height="100" width="220" x="140" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#76A5AF;strokeWidth=2;fontSize=13;fontStyle=1;" value="Agent 2 (Port 18802, openclaw02)&#xa;Primary: GPT 계열&#xa;Fallback: ❓ (확인필요)" vertex="1">
+          <mxGeometry height="100" width="220" x="390" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#76A5AF;strokeWidth=2;fontSize=13;fontStyle=1;" value="Agent 3 (Port 18803, 배포판 미생성)&#xa;Primary: Gemini&#xa;Fallback: ❓ (확인필요)" vertex="1">
+          <mxGeometry height="100" width="220" x="640" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agent1_gateway" edge="1" parent="1" source="agent1" style="endArrow=none;html=1;strokeColor=#000000;strokeWidth=2;exitX=0.5;exitY=0;entryX=0.3;entryY=1;endFill=0;startArrow=block;startFill=1;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agent2_gateway" edge="1" parent="1" source="agent2" style="endArrow=none;html=1;strokeColor=#000000;strokeWidth=2;exitX=0.5;exitY=0;entryX=0.5;entryY=1;startArrow=classic;startFill=1;endFill=0;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agent3_gateway" edge="1" parent="1" source="agent3" style="endArrow=none;html=1;strokeColor=#000000;strokeWidth=2;exitX=0.5;exitY=0;entryX=0.7;entryY=1;startArrow=block;startFill=1;endFill=0;" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;align=left;spacingLeft=8;fontSize=12;" value="📌 Agent 1(openclaw01)은 Ollama+Gemma 설치 진행중으로 반영했습니다. Agent 2(openclaw02)·Agent 3(배포판 미생성)의 Fallback 구성 여부(❓)는 확인 부탁드립니다. 업로드하신 파일에 동일한 다이어그램이 2벌 들어있어, 정리 차원에서 하나로 합쳤습니다 — 의도된 것이었다면 말씀해주세요." vertex="1">
+          <mxGeometry height="60" width="880" x="60" y="815" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
